@@ -1,4 +1,23 @@
-<p-card [header]="book?.title" styleClass="h-11rem">
+<p-card [style]="{ height: '25rem' }">
+  <ng-template pTemplate="header">
+    <div class="flex justify-content-between align-items-center p-2">
+      <h3 class="m-0">{{ book?.title }}</h3>
+      <p-button
+        icon="pi pi-times"
+        styleClass="p-button-danger p-button-sm"
+        (onClick)="deleteBook()"
+        *ngIf="showButtonDeleteBook"
+      ></p-button>
+      <p-button
+        icon="pi pi-plus"
+        styleClass="p-button-success p-button-sm"
+        (onClick)="addBook()"
+        *ngIf="showButtonAddBook"
+        [disabled]="book?.isReadingBook"
+      ></p-button>
+    </div>
+  </ng-template>
+  <img [src]="book?.cover" class="book__cover" alt="book cover" />
   <p class="m-0">
     {{ book?.synopsis }}
   </p>

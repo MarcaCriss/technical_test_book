@@ -7,6 +7,7 @@ export interface Book {
   year: number;
   ISBN: string;
   author: Author;
+  isReadingBook?: boolean;
 }
 
 export interface Author {

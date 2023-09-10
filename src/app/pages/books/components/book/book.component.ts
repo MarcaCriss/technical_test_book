@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from './../../../../shared/interfaces/book.interface';
 
 @Component({
@@ -7,6 +7,17 @@ import { Book } from './../../../../shared/interfaces/book.interface';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent {
-  @Input() book?: Book
+  @Input() book?: Book;
+  @Input() showButtonDeleteBook?: boolean = false;
+  @Input() showButtonAddBook?: boolean = false;
+  @Output() clickDeleteBook: EventEmitter<Book> = new EventEmitter<Book>();
+  @Output() clickAddBook: EventEmitter<Book> = new EventEmitter<Book>();
 
+  deleteBook(): void {
+    this.clickDeleteBook?.emit(this.book);
+  }
+
+  addBook(): void {
+    this.clickAddBook?.emit(this.book);
+  }
 }

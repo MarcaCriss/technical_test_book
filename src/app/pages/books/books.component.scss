@@ -1,0 +1,23 @@
+.container {
+  margin: 0 auto;
+  width: 1820px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 1rem;
+
+  .book__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .reading__book__list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+}
