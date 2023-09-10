@@ -1,9 +1,16 @@
 <div class="container">
   <div>
     <h1>Book list</h1>
+
+    <p-dropdown
+      [options]="bookGenreOptions"
+      [autoDisplayFirst]="false"
+      [style]="{ width: '12rem' }"
+      [(ngModel)]="selectedBookGenre"
+    ></p-dropdown>
     <div class="book__list">
       <app-book
-        *ngFor="let book of books"
+        *ngFor="let book of booksFiltered"
         [book]="book"
         [showButtonAddBook]="true"
         (clickAddBook)="addBook(book)"

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import data from './../../../assets/data/books.json';
 import { Book } from 'src/app/shared/interfaces/book.interface';
+import { BookGenre } from 'src/app/shared/enums/book-genre.enum';
 
 @Component({
   selector: 'app-books',
@@ -13,6 +14,11 @@ export class BooksComponent implements OnInit {
     isReadingBook: false,
   }));
   readingBooks: Book[] = [];
+  bookGenreOptions = Object.entries(BookGenre).map(([key, value]) => ({
+    label: value,
+    value: value,
+  }));
+  selectedBookGenre: BookGenre = BookGenre.All;
 
   ngOnInit(): void {
     this.books = JSON.parse(localStorage.getItem('books') || '[]');
@@ -37,5 +43,12 @@ export class BooksComponent implements OnInit {
 
   saveInLocalStorage(): void {
     localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  get booksFiltered(): Book[] {
+    if (this.selectedBookGenre !== BookGenre.All) {
+      return this.books.filter((book) => book.genre === this.selectedBookGenre);
+    }
+    return this.books;
   }
 }

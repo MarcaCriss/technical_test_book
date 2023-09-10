@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
 
 const MODULES_PRIME = [
   ButtonModule,
-  CardModule
+  CardModule,
+  DropdownModule,
 ];
 @NgModule({
   imports: [...MODULES_PRIME],
