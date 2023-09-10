@@ -6,7 +6,7 @@
         *ngFor="let book of books"
         [book]="book"
         [showButtonAddBook]="true"
-        (clickAddBook)="addBook($event)"
+        (clickAddBook)="addBook(book)"
       ></app-book>
     </div>
   </div>
@@ -17,7 +17,7 @@
         *ngFor="let book of readingBooks"
         [book]="book"
         [showButtonDeleteBook]="true"
-        (clickDeleteBook)="deleteBook($event)"
+        (clickDeleteBook)="deleteBook(book)"
       ></app-book>
     </div>
   </div>

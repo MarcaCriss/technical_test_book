@@ -4,7 +4,7 @@ import { Book } from './../../../../shared/interfaces/book.interface';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  styleUrls: ['./book.component.scss'],
 })
 export class BookComponent {
   @Input() book?: Book;
@@ -14,10 +14,10 @@ export class BookComponent {
   @Output() clickAddBook: EventEmitter<Book> = new EventEmitter<Book>();
 
   deleteBook(): void {
-    this.clickDeleteBook?.emit(this.book);
+    this.clickDeleteBook?.emit();
   }
 
   addBook(): void {
-    this.clickAddBook?.emit(this.book);
+    this.clickAddBook?.emit();
   }
 }
